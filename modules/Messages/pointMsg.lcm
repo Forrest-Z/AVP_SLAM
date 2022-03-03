@@ -1,0 +1,14 @@
+struct pointMsg
+{
+    // type
+    const int8_t parkingLot=0, dottedLine=1, straightArrow=2, arrowTurns=3, straightTurningArrow=4, doubleArrow=5;
+    
+    int8_t type;
+    
+    int64_t sequence;
+
+    // coordinate in body frame, if on the ground z should be 0.0;
+    float x, y, z;
+
+    poseMsg carPose;
+}
