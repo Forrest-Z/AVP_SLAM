@@ -27,3 +27,6 @@ target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS} lcm)
 
 add_executable(AVP_SIM Examples/AVP_SIM.cpp)
 target_link_libraries(AVP_SIM ${PROJECT_NAME})
+
+add_executable(AVP_MAPPING Examples/AVP_MAPPING.cpp)
+target_link_libraries(AVP_MAPPING ${PROJECT_NAME})

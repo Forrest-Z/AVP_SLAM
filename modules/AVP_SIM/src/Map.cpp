@@ -619,7 +619,7 @@ namespace AVP_SIM
 
     cv::Mat Map::semanticSeg(const cv::Point3f &CarPose)
     {
-        static int64_t sequence = 0;
+        static int64_t sequence = -1;
         int col_center = (CarPose.x - mMapParam.OriginX) / mMapParam.Res;
         int row_center = (CarPose.y - mMapParam.OriginY) / mMapParam.Res;
         float width = 200;
@@ -712,10 +712,12 @@ namespace AVP_SIM
 
                     // create lcm msg
                     cv::Mat Pw(2,1,CV_32F);
-                    Pw.at<float>(0) = (i - 200) * mMapParam.Res;
-                    Pw.at<float>(1) = (j - 200) * mMapParam.Res;
+                    Pw.at<float>(0) = (static_cast<float>(i) - 200.f) * mMapParam.Res;
+                    Pw.at<float>(1) = (static_cast<float>(j) - 200.f) * mMapParam.Res;
 
                     cv::Mat Pb = Tbw * Pw;
+              
+                    
                     pointMsg temp;
                     temp.sequence = sequence;
                     temp.carPose = carpos;
@@ -849,6 +851,8 @@ namespace AVP_SIM
                 }
             }
         }
+
+        sequence++;
         // std::cout << "n points: " << seg.points.size() << std::endl;
         cv::imshow("semantic", imSemanticSeg);
         return imLocal;
