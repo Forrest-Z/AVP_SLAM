@@ -1,6 +1,0 @@
-struct poseMsg
-{
-    float x;
-    float y;
-    float theta;
-}

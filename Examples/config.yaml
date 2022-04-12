@@ -1,0 +1,10 @@
+%YAML:1.0
+
+# motion controller
+Vx: 5 #km/h
+Vr: 0.2 #rad/s
+nVx: 0.01 # 1% noise
+nVr: 0.1 # 10% noise  
+
+# observer
+nPixel: 0.5 # perception noise

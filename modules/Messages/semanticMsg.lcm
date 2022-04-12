@@ -1,6 +1,0 @@
-struct semanticMsg
-{
-    int64_t num;
-    pointMsg points[num];
-    poseMsg CarPose;
-}
